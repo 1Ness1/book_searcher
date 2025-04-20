@@ -1,0 +1,32 @@
+[
+    {
+        "query": "Пламя Авроры",
+        "items": [
+            {
+                "title": "Пламя Авроры [ЛП][Aurora Burning]",
+                "url": "https://flibusta.is/b/740414",
+                "type": "Book"
+            },
+            {
+                "title": "Эми Кауфман",
+                "url": "https://flibusta.is/a/166720",
+                "type": "Author"
+            },
+            {
+                "title": "Джей Кристофф",
+                "url": "https://flibusta.is/a/209478",
+                "type": "Author"
+            }
+        ]
+    },
+    {
+        "query": "Джей Кристофф",
+        "items": [
+            {
+                "title": "Джей Кристофф",
+                "url": "https://flibusta.is/a/209478",
+                "type": "Author"
+            }
+        ]
+    }
+]
