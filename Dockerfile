@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y \
 
 # RUN pip install selenium
 
-RUN pip install requests bs4
+RUN pip install requests bs4 flask
 
 WORKDIR /app
 
