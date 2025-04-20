@@ -1,0 +1,6 @@
+services:
+  python-test-app:
+    build: .
+    volumes:
+      - .:/app
+    command: python app.py
