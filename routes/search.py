@@ -15,13 +15,18 @@ def search():
     results = []
 
     for query in data["books"]:
+        print(query)
         result = parse_flibusta(query)
+        
 
         if not isinstance(query, str):
             continue
 
-        
-        results.append({"query": query, "result": f"Тут запросы {result}"})
+        results.append({"query": query, "result": result})
 
 
     return jsonify(results)
+
+@search_blueprint.route("/search", methods=["GET"])
+def test():
+    return jsonify({"result": "hello world"})

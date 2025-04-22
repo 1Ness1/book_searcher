@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-results = []
+
 
 def parse_flibusta(query):
     query.strip()
@@ -17,9 +17,7 @@ def parse_flibusta(query):
 
     soup = BeautifulSoup(response.text, "html.parser")
 
-    print(f"\nРезультаты поиска по запросу: {query}\n")
-
-    search_results = {"query": query, "items": []}
+    search_results = []
 
     for link in soup.select("#main ul li a"):
         title = link.text.strip()
@@ -29,15 +27,12 @@ def parse_flibusta(query):
 
         if href:
             if "/b/" in href:
-                item["type"] = "Book"
+                item["type"] = "book"
             elif "/a/" in href:
-                item["type"] = "Author"
+                item["type"] = "author"
             else:
-                item["type"] = "Unkown"
+                item["type"] = "unkown"
 
-        search_results["items"].append(item)
+        search_results.append(item)
     
-    results.append(search_results)
-
-    print(results)
-    return results
+    return search_results
