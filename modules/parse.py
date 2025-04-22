@@ -17,22 +17,31 @@ def parse_flibusta(query):
 
     soup = BeautifulSoup(response.text, "html.parser")
 
-    search_results = []
+    item_container = {
+            "books": [],
+            "authors": [],
+            "sequence": [],
+            "unknown": [],
+    }
 
     for link in soup.select("#main ul li a"):
         title = link.text.strip()
         href = link.get("href")
         domain = "https://flibusta.is"
-        item = {"title": title, "url": f"{domain}{href if href else None}"}
+
+        item = {
+            "title": title,
+            "url": f"{domain}{href if href else None}"
+        }
 
         if href:
             if "/b/" in href:
-                item["type"] = "book"
+                item_container["books"].append(item)
             elif "/a/" in href:
-                item["type"] = "author"
+                item_container["authors"].append(item)
+            elif "/sequence/" in href:
+                item_container["sequence"].append(item)
             else:
-                item["type"] = "unkown"
+                item_container["unknown"].append(item)
 
-        search_results.append(item)
-    
-    return search_results
+    return item_container
