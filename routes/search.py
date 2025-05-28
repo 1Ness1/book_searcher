@@ -1,5 +1,6 @@
 from flask import request, jsonify, Blueprint, Response
 import requests
+import json
 from bs4 import BeautifulSoup
 from modules.parse import parse_flibusta
 
